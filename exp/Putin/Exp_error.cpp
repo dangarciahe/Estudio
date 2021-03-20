@@ -20,6 +20,9 @@ int main (int argc, char **argv)
     REAL Rsum;
     int n;
     int m;
+    std::cout.precision(10);
+    std::cout.setf(std::ios::scientific);
+    std::cout<<"x"<<"\t"<<"\t"<<"\t"<< "n" << "\t" << "R_error" << "\t"<< "\t"<<  "\t"<<"A_error" <<"\n";
 
     for (int ii=0; ii<values.size();ii++){
         x=values[ii];
@@ -27,13 +30,16 @@ int main (int argc, char **argv)
         Taylor(x,m,Tsum);
         recursive(x,n,Rsum);
         if (x>0){
-        std::cout<<x<<"\t"<< m <<"\t" <<Rel_Diff(Tsum,exp)<<"\t"<< Abs_Diff(Tsum,exp)<<"\n";
-        std::cout<<x<<"\t"<<n<<"\t" <<Rel_Diff(Rsum,exp)<<"\t"<< Abs_Diff(Rsum,exp)<<"\n";
+        std::cout<<x <<"\t"<< m+1 <<"\t" <<Rel_Diff(Tsum,exp)<<"\t"<< Abs_Diff(Tsum,exp)<<"\n";
+        std::cout<<"\t"<<"\t"<<"\t"<< n+1 <<"\t" <<Rel_Diff(Rsum,exp)<<"\t"<< Abs_Diff(Rsum,exp)<<"\n";
         }
         else{
             x=-x;
-            std::cout<<-x<<"\t"<< m <<"\t" <<Rel_Diff((1/Tsum),(1/exp))<<"\t"<< Abs_Diff((1/Tsum),(1/exp))<<"\n";
-            std::cout<<-x<<"\t"<<n<<"\t" <<Rel_Diff((1/Rsum),(1/exp))<<"\t"<< Abs_Diff((1/Rsum),(1/exp))<<"\n";
+            exp=std::exp(x);
+            Taylor(x,m,Tsum);
+            recursive(x,n,Rsum);
+            std::cout<<-x<<"\t"<< m+1 <<"\t" <<Rel_Diff((1/Tsum),(1/exp))<<"\t"<< Abs_Diff((1/Tsum),(1/exp))<<"\n";
+            std::cout<<"\t"<<"\t"<<"\t"<<n+1<<"\t" <<Rel_Diff((1/Rsum),(1/exp))<<"\t"<< Abs_Diff((1/Rsum),(1/exp))<<"\n";
         }
 
  }
