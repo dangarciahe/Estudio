@@ -46,7 +46,7 @@ REAL error(REAL teorico, REAL exp)
 int main ()
 {
   //Inputs
-  REAL x = 3.14159; //x en el que se evalua la funcion e^x
+  REAL x = -3.14159; //x en el que se evalua la funcion e^x
   int Nmax = 25;  // cota superior para el numero de pasos
   REAL tol = 10e-6; //La tolerancia
 
@@ -90,10 +90,12 @@ int main ()
 		    << error (exacto, series0) << "\t \t"
 		    << error (exacto, recursion0) << "\n";
 	}
-      std::cout << ii+1 << "\t"
-		<< error (exacto, series) << "\t \t"
-		<< error (exacto, recursion) << "\n";
-      
+      else
+	{
+	  std::cout << ii+1 << "\t"
+		    << error (exacto, series) << "\t \t"
+		    << error (exacto, recursion) << "\n";
+	}
       
       ii+=1;
     }
