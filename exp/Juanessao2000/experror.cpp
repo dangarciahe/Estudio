@@ -86,7 +86,7 @@ void factaylor (REAL x, int iter, REAL & an, REAL & sum)
 REAL errorexp (REAL t, REAL x)
 {
   REAL error = 0.0;
-  error = 100*std::fabs(t-std::exp(x))/std::exp(x); /*error de t respecto a std::exp*/
+  error = std::fabs(t-std::exp(x))/std::exp(x); /*error de t respecto a std::exp*/
   return error;
 }
 
