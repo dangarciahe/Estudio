@@ -23,7 +23,9 @@ int main()
   REAL aux = x;
   std::cout.precision(8);
   std::cout.setf(std::ios::scientific);
-  std::cout << "n \t \t Valor \t \t \t  Error normal \t \t \t  Error recursion \n \n";
+  std::cout << "n \t \t Valor n \t \t  Error n \t \t  Error r \t \t Valor R \n \n";
+  //Valor n = Valor hallado por el metodo directo (n de normal)
+  //Valor R = Por el metodo recursivo
   
   //parte a
   for (int ii=1; ii<=n; ii++)
@@ -33,22 +35,23 @@ int main()
       for (int jj=1; jj<=15; jj++)
 	{
 	  recursion+=an;
-	  an = crecursion(aux,ii);
+	  an = crecursion(aux,jj);
 	}
       aux = aux/10.0;
       y = fx(aux);
       std:: cout << ii << "\t \t"
 		 << y << "\t \t"
 		 << error (exacto,y) << "\t \t"
-		 << error (exacto, recursion) << "\n";
+		 << error (exacto, recursion) << "\t \t"
+		 << recursion <<"\n";
     } 
   return 0;
 }
 
 
-//definicion de funciones
+//Definicion de funciones
 
-//porcentaje de error
+//Porcentaje de error
 REAL error (REAL teorico, REAL experimental)
 {
   REAL valor = 100.0*fabs(teorico-experimental)/teorico;
@@ -63,13 +66,10 @@ REAL fx (REAL x)
   return valor;
 }
 
-//coeficiente n+1 de la recursion
+//Coeficiente n+1 de la recursion
 REAL crecursion (REAL x, int n)
 {
   REAL valor;
   valor = (x*x)/((2*n+5)*(2*n+4));
   return valor;
 }
-
-
-
