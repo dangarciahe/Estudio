@@ -47,7 +47,7 @@ int main()
     tstop(ntft, eps, sft);
 
     n++;/*como le sumo 1 aquí, entonces en la condición tengo que restar dos para que me dé el correcto número de iteraciones;*/
-  }while((n+2)<NMAX or (srt == 0 and sft == 0) );
+  }while((n+2)<NMAX and (srt == 0 and sft == 0) );
 
 }
 
