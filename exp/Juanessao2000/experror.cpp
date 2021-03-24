@@ -26,7 +26,7 @@ int main()
   REAL ft = 0.0; /*Variable que se va a relacionar con la forma con factorial de la serie de Taylor del exponencial*/
   int srt = 0; /*variable que determinará si rt sobrepasó la precisión*/
   int sft = 0; /*variable que determinará si ft sobrepasó la precisión*/
-  REAL xe = 1; /*valor que le vamos a dar a x en la función f(x) = e^x*/
+  REAL xe = 20; /*valor que le vamos a dar a x en la función f(x) = e^x*/
 
 
   REAL ntrt = 1.0; /*valor del n-ésimo término de la serie de Taylor con método de recurrencia*/
@@ -47,7 +47,7 @@ int main()
     tstop(ntft, eps, sft);
 
     n++;/*como le sumo 1 aquí, entonces en la condición tengo que restar dos para que me dé el correcto número de iteraciones;*/
-  }while((n+2)<NMAX and (srt == 0 and sft == 0) );
+  }while((n+2)<NMAX and (srt == 0 or sft == 0) );
 
 }
 
