@@ -1,0 +1,165 @@
+Para actualizar drives de AMD:
+sudo apt install xserver-xorg-video-amdgpu
+sudo apt install firmware-amd-graphics libgl1-mesa-dri libglx-mesa0 mesa-vulkan-drivers xserver-xorg-video-all
+
+
+
+Actualizar Vulkan API
+sudo apt install libvulkan1 mesa-vulkan-drivers vulkan-utils
+
+
+
+Borrar todos los "*~" de una carpeta (creados por Emacs)
+find . -name '*~' -delete
+
+
+
+Verificar una contraseña en HaveIBeenPwned [5 primeras del hash]
+curl https://api.pwnedpasswords.com/range/[5primerasdelhash]
+
+
+
+Agregar directorio con programas a la linea de comandos $PATH [reemplazar con el directorio]
+export PATH=$PATH:[~/git/hashcat]
+export PATH=$PATH:[~/src/john/run]
+
+
+
+Monitorar temperaturas
+sensors 
+sudo hddtemp /dev/sda
+
+
+
+Activar Shizuku 
+adb devices
+adb shell sh /data/user_de/0/moe.shizuku.privileged.api/start.sh
+
+
+
+Eliminar metadata de un archivo
+exiftool -all= nombre del archivo
+
+
+
+Grabar pantalla (con posibilidad de audio)
+shazam
+
+
+
+Verificar espacio de almacenamiento externo
+sudo fdisk -l #verifica el nombre del dispositivo externo
+sudo f3probe --destructive --time-ops [/dev/sdb] #Prueba el dispositivo. Borra informacion previa
+f3write [/media/username/1EB8021AB801F0D7/] #Escribe en el almacenamiento
+f3read [/media/username/1EB8021AB801F0D7/]  #Lee los datos escritos
+
+
+
+Ver mi IP publica
+curl ifconfig.me
+
+
+
+Monitorar progreso
+pv 
+
+
+
+Hold an apt package 
+sudo apt-mark hold <package>
+
+
+
+Unhold an apt package 
+sudo apt-mark unhold <package>
+
+
+
+Verificar distintos hashes de la firma de un .apk
+apksigner verify --print-certs [nombre_archivo.apk]
+
+
+
+Clear local DNS cache
+sudo systemd-resolve --flush-caches
+
+
+
+Mostrar RAM libre en porcentaje 
+free | grep Mem | awk '{print $3/$2 * 100.0}'
+
+
+
+Network de VM (kvm)
+sudo virsh net-start default
+sudo virsh net-autostart --network default
+
+
+
+
+"Quemar" .iso a una USB
+#sudo dd bs=4M if=[linuxmint-20.1-mate-64bit.iso] of=[/dev/sdc] conv=fdatasync
+
+
+
+
+Actualizar youtube-dl
+sudo pip install --upgrade youtube_dl
+
+
+
+
+Montar el disco HDD de Windows con permisos de escritura
+sudo mount -t ntfs-3g /dev/sda3 /mnt/ntfs2/ -o remove_hiberfile
+
+
+
+
+
+Lanzar Picard para poder acceder al disco de Windows
+flatpak run --filesystem=/mnt/ntfs2 org.musicbrainz.Picard
+
+
+
+comandos de git
+git init #crea un repositorio local
+git add  #marca una archivo para ser subido al repositorio
+git commit -m [comentario] #commit el repositorio y añade un comentario al cambio
+
+
+
+
+Mostrar lineas en Emacs
+M-x global-display-line-numbers-mode #M-x = Esc+m
+
+
+Convertir imagenes a pdf (Se usa Imagemagick, habiendo antes modificado un parametro del programa)
+convert imagen1.jpg imagen2.jpg archivo.pdf
+
+
+
+Mirar y añadir en la variable PATH
+echo $PATH
+export PATH=~/.apps/spack/bin:$PATH       #anadir una carpeta al $PATH
+export LD_LIBRARY_PATH=~/local/lib/ #Para el linker de g++
+
+
+
+
+Compilar con g++, inluyendo librerias extra, y sin tener que modificar la variable LD_LIBRARY_PATH
+g++ -I ~/local/include/ -L ~/local/lib/ -Wl,-rpath=$HOME/local/lib/  gls.cpp -lgsl -lgslcblas
+g++ -I $HOME/local/include -L $HOME/local/lib filename.cpp -llibname    #Este necesita que se modifique la variable
+g++ -I ~/.apps/spack/opt/spack/linux-debian10-excavator/gcc-8.3.0/gsl-2.6-qv56bgzta7nn6o56guuwqgkd4klbdsgb/include/ -L ~/.apps/spack/opt/spack/linux-debian10-excavator/gcc-8.3.0/gsl-2.6-qv56bgzta7nn6o56guuwqgkd4klbdsgb/lib/ gsl.cpp -lgsl -lgslcblas
+
+
+
+Configurar programs con ckame o con configure para que se instalen en cierto directorio
+cmake ../ -DCMAKE_INSTALL_PREFIX=$HOME/local
+./configure --prefix=$HOME/local
+
+
+Mostrar número de líneas de algo
+wc -l
+#ejemplo ls | wc -l
+
+    
