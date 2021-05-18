@@ -37,6 +37,7 @@ adb shell sh /data/user_de/0/moe.shizuku.privileged.api/start.sh
 
 
 
+
 Eliminar metadata de un archivo
 exiftool -all= nombre del archivo
 
@@ -80,7 +81,7 @@ apksigner verify --print-certs [nombre_archivo.apk]
 
 
 
-Clear local DNS cache
+Borrar caché local de DNS
 sudo systemd-resolve --flush-caches
 
 
@@ -111,8 +112,6 @@ sudo pip install --upgrade youtube_dl
 
 Montar el disco HDD de Windows con permisos de escritura
 sudo mount -t ntfs-3g /dev/sda3 /mnt/ntfs2/ -o remove_hiberfile
-
-
 
 
 
@@ -162,4 +161,38 @@ Mostrar número de líneas de algo
 wc -l
 #ejemplo ls | wc -l
 
-    
+
+
+Usar adb
+adb devices
+scrcpy #comparte la pantalla del celular conectado por usb 
+
+
+Conectarse a la sala de física.
+ssh -p 443 dangarciahe@168.176.35.111
+
+
+Correr un programa de C++ en paralelo
+g++ -fopenmp archivo.cpp
+./a.out
+OMP_NUM_THREADS=10 ./a.out
+
+
+#Ver usuarios conectados
+w
+
+
+#Correr algo sin que el ssh lo mate
+nohup ./a.out & 
+
+
+
+#Ver cosas de la CPU
+nano /proc/cpuinfo
+lshw
+lshw -C memory
+
+
+
+#Ver la hora en otro pais
+zdump America/New_York
