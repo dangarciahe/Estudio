@@ -11,6 +11,8 @@ const long N = 1000000;
 double deltax = (b-a)/N;
 
 int main (){
+  std::cout.precision(15);
+  std::cout.setf(std::ios::scientific);
   double integral = parallel_integral();
   std::cout <<integral<<"\n";
   return 0;
