@@ -34,7 +34,7 @@ void parallel(int N, int argc, char**argv) //the parallelized code
   MPI_Comm_rank(MPI_COMM_WORLD, &pid); //id number of the current process
 
   if(pid==0){
-    std::cout << "#pi \t number of processes \t elapsed time \n";
+    std::cout << "\n #pi \t number of processes \t elapsed time \t speedup \t efficiency \n";
   }
   
   double val = random_parallel (pid, np, N);
@@ -47,7 +47,7 @@ void parallel(int N, int argc, char**argv) //the parallelized code
   //  MPI_Reduce( &elapsedTime, &totalTime, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD );
     if ( pid == 0 ) {
       double T1 = 4.4248514730; //value of the elapsed time for one slot only
-      double speedup = elapsedTime/T1; //speedup of the parallel process
+      double speedup = T1/elapsedTime; //speedup of the parallel process
       double efficience = speedup/np; 
       std::cout << np << "\t" << elapsedTime << "\t" << speedup << "\t" << efficience << "\n" ;
     }
