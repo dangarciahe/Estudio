@@ -46,7 +46,7 @@ void parallel(int N, int argc, char**argv) //the parallelized code
   double totalTime;
   //  MPI_Reduce( &elapsedTime, &totalTime, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD );
     if ( pid == 0 ) {
-      double T1 = 4.4248514730; //value of the elapsed time for one slot only
+      double T1 = 464.266168; //value of the elapsed time for one slot and N=2000000000 only, calculated on the cluster
       double speedup = T1/elapsedTime; //speedup of the parallel process
       double efficience = speedup/np; 
       std::cout << np << "\t" << elapsedTime << "\t" << speedup << "\t" << efficience << "\n" ;
