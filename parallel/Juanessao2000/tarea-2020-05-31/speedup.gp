@@ -1,4 +1,3 @@
-set log y
 set xlabel "Number of processes"
 set ylabel "Speedup"
 set term pdf
